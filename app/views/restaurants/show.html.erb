@@ -1,0 +1,18 @@
+<h1><%= @restaurant.name %> <%= @restaurant.category%></h1>
+  <p><%= @restaurant.address%></p>
+  <p><%= @restaurant.phone_number%></p>
+
+  <%# iterates over the reviews %>
+  <%# HOW CAN I ITERATE OVER THE REVIEWS? I HAVE MY RESTAURANT INSTANCE... %>
+  <%#= restaurant.reviews PORQUE EU FIZ ESSA ASSOCAÇÃO NO MODELO RESTAURANT %>
+  <ul class="list-group">
+    <% @restaurant.reviews.each do |review| %>
+      <li class="list-group-item"><%= review.content %></li>
+      <li class="list-group-item"><%= '⭐' * review.rating %></li>
+     <hr>
+    <% end %>
+  </ul>
+
+<%= link_to 'Leave a review', new_restaurant_review_path(@restaurant) %>
+<hr>
+<%= link_to 'Back to restaurants', restaurants_path %>
